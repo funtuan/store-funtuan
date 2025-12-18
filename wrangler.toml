@@ -1,9 +1,3 @@
 name = "store-funtuan"
 compatibility_date = "2025-12-18"
-
-# The main entry point for the Worker
-main = "dist/_worker.js"
-
-# Cloudflare Pages compatibility
-[site]
-bucket = "./dist"
+pages_build_output_dir = "dist"
