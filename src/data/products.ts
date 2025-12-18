@@ -19,10 +19,10 @@ export const products: Product[] = [
     id: 'canvas-bag',
     name: 'FunTuan 品牌帆布袋',
     price: 350,
-    description: '環保帆布材質，印有品牌 Logo，適合日常使用',
+    description: '環保帆布材質,印有品牌 Logo，適合日常使用',
     longDescription: '採用高品質 12 盎司純棉帆布製成，手感紮實耐用。正面印有 FunTuan 工作室專屬 Logo，簡約設計適合各種場合搭配。內含一個小口袋，方便收納手機或零錢。是環保購物、日常通勤的最佳夥伴。',
     emoji: '🛍️',
-    image: '/src/image/canvas-bag.jpeg',
+    image: '/images/canvas-bag.jpeg',
     features: [
       '12 盎司純棉帆布，厚實耐用',
       '內含小口袋，收納更方便',
@@ -44,7 +44,7 @@ export const products: Product[] = [
     description: '5 本不同造型的便利貼，讓筆記更有趣',
     longDescription: '一組包含 5 本不同造型與顏色的便利貼，從圓形、方形到對話框造型，滿足各種筆記需求。採用環保紙材，黏性適中可重複黏貼，不傷書頁與桌面。每本 30 張，總共 150 張讓你盡情使用。',
     emoji: '📝',
-    image: '/src/image/sticky-notes.jpeg',
+    image: '/images/sticky-notes.jpeg',
     features: [
       '5 種不同造型，筆記更有變化',
       '環保紙材，書寫滑順',
@@ -66,7 +66,7 @@ export const products: Product[] = [
     description: 'A5 尺寸，適合記錄生活點滴',
     longDescription: '極簡設計的手賬本，A5 尺寸方便攜帶。內頁採用 100gsm 道林紙，書寫滑順不透墨。內含空白頁、方格頁、橫線頁三種版型，滿足繪圖、規劃、書寫等多元需求。附有書籤絲帶與鬆緊帶收口，隨時記錄靈感。',
     emoji: '📔',
-    image: '/src/image/notebook.jpeg',
+    image: '/images/notebook.jpeg',
     features: [
       '三種內頁版型，一本多用',
       '100gsm 道林紙，不透墨',
@@ -88,7 +88,7 @@ export const products: Product[] = [
     description: '天然軟木材質，吸水防滑，保護桌面',
     longDescription: '選用天然葡萄牙軟木製成，表面印有 FunTuan 原創插圖設計。軟木具有天然吸水特性，能有效防止水漬沾染桌面。底部防滑設計，杯子放置更穩固。一組四款不同圖案，為你的桌面增添療癒氛圍。',
     emoji: '☕',
-    image: '/src/image/coaster-set.jpeg',
+    image: '/images/coaster-set.jpeg',
     features: [
       '天然葡萄牙軟木，環保材質',
       '吸水性佳，保護桌面',
