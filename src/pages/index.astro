@@ -1,0 +1,416 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="FunTuan 工作室 | 將一些日常小事變得方便有趣">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>FunTuan 工作室</h1>
+        <p class="slogan">將一些日常小事變得方便有趣</p>
+        <div class="hero-decoration">
+          <span class="circle circle-1"></span>
+          <span class="circle circle-2"></span>
+          <span class="circle circle-3"></span>
+        </div>
+      </div>
+      <div class="scroll-hint">
+        <span>往下探索</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>關於我們</h2>
+        <p>用創意和技術，為生活帶來微小但實在的改變</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card about-card">
+          <div class="icon">🎯</div>
+          <h3>我們的使命</h3>
+          <p>讓日常小事變得更方便、更有趣</p>
+        </div>
+        <div class="card about-card">
+          <div class="icon">🌟</div>
+          <h3>我們的願景</h3>
+          <p>透過創意和技術，為生活帶來微小但實在的改變</p>
+        </div>
+        <div class="card about-card">
+          <div class="icon">💡</div>
+          <h3>我們的價值觀</h3>
+          <p>簡單至上、用戶體驗優先、持續創新</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Works Section -->
+  <section class="works" id="works">
+    <div class="container">
+      <div class="section-title">
+        <h2>我們做的一些小事</h2>
+        <p>從日常中發現問題，用創意讓生活更美好</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card work-card">
+          <div class="work-icon">📝</div>
+          <h3>智慧待辦清單</h3>
+          <p>讓每日待辦事項不再枯燥，加入有趣的提醒和成就系統</p>
+          <span class="tag">解決拖延症</span>
+        </div>
+        <div class="card work-card">
+          <div class="work-icon">📌</div>
+          <h3>記憶便利貼</h3>
+          <p>數位化便利貼，隨時記錄靈光一閃的想法</p>
+          <span class="tag">捕捉靈感</span>
+        </div>
+        <div class="card work-card">
+          <div class="work-icon">💰</div>
+          <h3>簡單記帳本</h3>
+          <p>用最簡單的方式記錄每日開銷，清晰的消費視覺化分析</p>
+          <span class="tag">掌握財務</span>
+        </div>
+        <div class="card work-card">
+          <div class="work-icon">✅</div>
+          <h3>習慣養成助手</h3>
+          <p>透過小步驟和正向回饋，培養好習慣</p>
+          <span class="tag">堅持 21 天</span>
+        </div>
+        <div class="card work-card">
+          <div class="work-icon">😊</div>
+          <h3>心情記錄器</h3>
+          <p>簡單記錄每天的心情與想法，了解自己的情緒模式</p>
+          <span class="tag">認識自己</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop Preview Section -->
+  <section class="shop" id="shop">
+    <div class="container">
+      <div class="section-title">
+        <h2>生活小物</h2>
+        <p>精選生活好物，為日常增添一點樂趣</p>
+      </div>
+      <div class="grid grid-3">
+        <a href="/shop/canvas-bag" class="card product-card">
+          <div class="product-image">
+            <img src="/src/image/canvas-bag.jpeg" alt="FunTuan 品牌帆布袋" />
+          </div>
+          <h3>FunTuan 品牌帆布袋</h3>
+          <p>環保帆布材質，印有品牌 Logo</p>
+          <div class="product-price">NT$ 350</div>
+        </a>
+        <a href="/shop/sticky-notes" class="card product-card">
+          <div class="product-image">
+            <img src="/src/image/sticky-notes.jpeg" alt="創意便利貼套組" />
+          </div>
+          <h3>創意便利貼套組</h3>
+          <p>5 本不同造型的便利貼</p>
+          <div class="product-price">NT$ 180</div>
+        </a>
+        <a href="/shop/notebook" class="card product-card">
+          <div class="product-image">
+            <img src="/src/image/notebook.jpeg" alt="簡約手賬本" />
+          </div>
+          <h3>簡約手賬本</h3>
+          <p>A5 尺寸，適合記錄生活點滴</p>
+          <div class="product-price">NT$ 280</div>
+        </a>
+      </div>
+      <div class="shop-cta">
+        <a href="/shop" class="btn btn-primary">查看全部商品 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>FunTuan 工作室</h3>
+          <p>將一些日常小事變得方便有趣</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速連結</h4>
+          <a href="#about">關於我們</a>
+          <a href="#works">我們的服務</a>
+          <a href="/shop">生活小物</a>
+        </div>
+        <div class="footer-contact">
+          <h4>聯繫我們</h4>
+          <p><a href="mailto:hank85627@gmail.com">hank85627@gmail.com</a></p>
+          <p class="reply-time">我們將在 1-2 個工作天內回覆您</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 FunTuan 工作室. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #e8c4a0 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    text-align: center;
+    color: var(--color-white);
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .slogan {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    color: var(--color-white);
+  }
+
+  @media (min-width: 768px) {
+    .slogan {
+      font-size: 1.5rem;
+    }
+  }
+
+  .hero-decoration {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+  }
+
+  .circle-1 {
+    width: 300px;
+    height: 300px;
+    background: var(--color-secondary);
+    top: -100px;
+    right: -100px;
+  }
+
+  .circle-2 {
+    width: 200px;
+    height: 200px;
+    background: var(--color-white);
+    bottom: -50px;
+    left: -50px;
+  }
+
+  .circle-3 {
+    width: 150px;
+    height: 150px;
+    background: var(--color-secondary);
+    top: 50%;
+    left: 10%;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-white);
+    opacity: 0.8;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+  }
+
+  /* About */
+  .about {
+    background: var(--color-white);
+  }
+
+  .about-card {
+    text-align: center;
+  }
+
+  .about-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Works */
+  .works {
+    background: var(--color-bg);
+  }
+
+  .work-card {
+    text-align: center;
+  }
+
+  .work-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 4px 12px;
+    background: var(--color-secondary);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--color-text);
+  }
+
+  /* Shop */
+  .shop {
+    background: var(--color-white);
+  }
+
+  .product-card {
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .product-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .product-image {
+    margin-bottom: 1rem;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+  }
+
+  .product-card:hover .product-image img {
+    transform: scale(1.05);
+  }
+
+  .product-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: 1rem;
+  }
+
+  .shop-cta {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--color-text);
+    color: var(--color-white);
+    padding: 60px 0 30px;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-content {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+  }
+
+  .footer-brand h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-brand p {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .footer-links h4,
+  .footer-contact h4 {
+    color: var(--color-white);
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .footer-links a {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    transition: var(--transition);
+  }
+
+  .footer-links a:hover {
+    color: var(--color-secondary);
+  }
+
+  .footer-contact a {
+    color: var(--color-secondary);
+    text-decoration: none;
+  }
+
+  .footer-contact a:hover {
+    text-decoration: underline;
+  }
+
+  .reply-time {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0.25rem;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+</style>

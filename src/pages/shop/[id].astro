@@ -1,0 +1,637 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { products, getProductById } from '../../data/products';
+
+export function getStaticPaths() {
+  return products.map(product => ({
+    params: { id: product.id },
+  }));
+}
+
+const { id } = Astro.params;
+const product = getProductById(id);
+
+if (!product) {
+  return Astro.redirect('/shop');
+}
+
+// Get related products (same category, exclude current)
+const relatedProducts = products
+  .filter(p => p.category === product.category && p.id !== product.id)
+  .slice(0, 3);
+---
+
+<Layout title={`${product.name} | FunTuan 工作室`}>
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <div class="container">
+      <a href="/">首頁</a>
+      <span>/</span>
+      <a href="/shop">生活小物</a>
+      <span>/</span>
+      <span class="current">{product.name}</span>
+    </div>
+  </nav>
+
+  <!-- Product Detail -->
+  <section class="product-detail">
+    <div class="container">
+      <div class="product-layout">
+        <!-- Product Image -->
+        <div class="product-image-section">
+          <div class="product-image-main">
+            <img src={product.image} alt={product.name} />
+          </div>
+          <div class="product-badge">{product.category}</div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-info-section">
+          <h1>{product.name}</h1>
+          <p class="product-short-desc">{product.description}</p>
+          
+          <div class="product-price-box">
+            <span class="price-label">售價</span>
+            <span class="price-value">NT$ {product.price}</span>
+          </div>
+
+          <div class="product-description">
+            <h3>商品介紹</h3>
+            <p>{product.longDescription}</p>
+          </div>
+
+          <div class="product-features">
+            <h3>商品特色</h3>
+            <ul>
+              {product.features.map(feature => (
+                <li>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <button class="btn btn-primary btn-large buy-btn">
+            我想購買
+          </button>
+
+          <p class="contact-hint">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            或直接來信 <a href="mailto:hank85627@gmail.com">hank85627@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Specs -->
+  <section class="specs-section">
+    <div class="container">
+      <h2>商品規格</h2>
+      <div class="specs-table">
+        {product.specs.map(spec => (
+          <div class="spec-row">
+            <span class="spec-label">{spec.label}</span>
+            <span class="spec-value">{spec.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Notice Section -->
+  <section class="notice-section">
+    <div class="container">
+      <div class="notice-grid">
+        <div class="notice-card">
+          <div class="notice-icon">📦</div>
+          <h4>出貨說明</h4>
+          <p>確認訂單後 3-5 個工作天內出貨，寄送至指定地址</p>
+        </div>
+        <div class="notice-card">
+          <div class="notice-icon">🔄</div>
+          <h4>退換貨政策</h4>
+          <p>收到商品 7 天內如有問題可申請退換貨</p>
+        </div>
+        <div class="notice-card">
+          <div class="notice-icon">💬</div>
+          <h4>聯繫客服</h4>
+          <p>有任何問題歡迎來信，我們將盡快回覆您</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  {relatedProducts.length > 0 && (
+    <section class="related-section">
+      <div class="container">
+        <h2>你可能也喜歡</h2>
+        <div class="related-grid">
+          {relatedProducts.map(related => (
+            <a href={`/shop/${related.id}`} class="related-card">
+              <div class="related-image">
+                <img src={related.image} alt={related.name} />
+              </div>
+              <div class="related-info">
+                <h4>{related.name}</h4>
+                <span class="related-price">NT$ {related.price}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Back to Shop -->
+  <section class="back-section">
+    <div class="container">
+      <a href="/shop" class="back-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回商品列表
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>FunTuan 工作室</h3>
+          <p>將一些日常小事變得方便有趣</p>
+        </div>
+        <div class="footer-contact">
+          <h4>聯繫我們</h4>
+          <p><a href="mailto:hank85627@gmail.com">hank85627@gmail.com</a></p>
+          <p class="reply-time">我們將在 1-2 個工作天內回覆您</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 FunTuan 工作室. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <h3>金流設置中，敬請期待！</h3>
+      <p>我們正在努力建置線上購物功能</p>
+      <p>如有購買需求，歡迎透過 Email 與我們聯繫</p>
+      <p><a href="mailto:hank85627@gmail.com">hank85627@gmail.com</a></p>
+      <button class="btn btn-secondary" id="close-modal">關閉</button>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Breadcrumb */
+  .breadcrumb {
+    background: var(--color-white);
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .breadcrumb .container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+  }
+
+  .breadcrumb a {
+    color: var(--color-text-light);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-primary);
+  }
+
+  .breadcrumb span {
+    color: var(--color-text-light);
+  }
+
+  .breadcrumb .current {
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  /* Product Detail */
+  .product-detail {
+    padding: 3rem 0;
+    background: var(--color-bg);
+  }
+
+  .product-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .product-layout {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+
+  /* Product Image */
+  .product-image-section {
+    position: relative;
+  }
+
+  .product-image-main {
+    background: var(--color-white);
+    border-radius: var(--radius);
+    padding: 0;
+    text-align: center;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-image-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-image-section .product-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--color-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  /* Product Info */
+  .product-info-section h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .product-info-section h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .product-short-desc {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .product-price-box {
+    background: var(--color-white);
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+  }
+
+  .price-label {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+  }
+
+  .price-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .product-description,
+  .product-features {
+    margin-bottom: 1.5rem;
+  }
+
+  .product-description h3,
+  .product-features h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .product-description p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--color-text-light);
+  }
+
+  .product-features ul {
+    list-style: none;
+  }
+
+  .product-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+  }
+
+  .product-features li svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .btn-large {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+  }
+
+  .contact-hint a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .contact-hint a:hover {
+    text-decoration: underline;
+  }
+
+  /* Specs */
+  .specs-section {
+    background: var(--color-white);
+    padding: 3rem 0;
+  }
+
+  .specs-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .specs-table {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--color-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .spec-row {
+    display: flex;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--color-white);
+  }
+
+  .spec-row:last-child {
+    border-bottom: none;
+  }
+
+  .spec-label {
+    flex: 0 0 120px;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .spec-value {
+    flex: 1;
+    color: var(--color-text-light);
+  }
+
+  /* Notice */
+  .notice-section {
+    background: var(--color-bg);
+    padding: 3rem 0;
+  }
+
+  .notice-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .notice-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .notice-card {
+    background: var(--color-white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+
+  .notice-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .notice-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .notice-card p {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    line-height: 1.5;
+  }
+
+  /* Related */
+  .related-section {
+    background: var(--color-white);
+    padding: 3rem 0;
+  }
+
+  .related-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .related-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .related-card {
+    background: var(--color-bg);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-decoration: none;
+    text-align: center;
+    transition: var(--transition);
+  }
+
+  .related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+  }
+
+  .related-image {
+    margin-bottom: 0.75rem;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .related-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+  }
+
+  .related-card:hover .related-image img {
+    transform: scale(1.1);
+  }
+
+  .related-info h4 {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+  }
+
+  .related-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  /* Back */
+  .back-section {
+    background: var(--color-bg);
+    padding: 2rem 0 3rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .back-link:hover {
+    color: var(--color-primary);
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--color-text);
+    color: var(--color-white);
+    padding: 60px 0 30px;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .footer-brand h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-brand p {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .footer-contact h4 {
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-contact a {
+    color: var(--color-secondary);
+    text-decoration: none;
+  }
+
+  .footer-contact a:hover {
+    text-decoration: underline;
+  }
+
+  .reply-time {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0.25rem;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+</style>
+
+<script>
+  const buyBtn = document.querySelector('.buy-btn');
+  const modal = document.getElementById('modal');
+  const closeModal = document.getElementById('close-modal');
+
+  buyBtn?.addEventListener('click', () => {
+    modal?.classList.add('active');
+  });
+
+  closeModal?.addEventListener('click', () => {
+    modal?.classList.remove('active');
+  });
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+    }
+  });
+</script>
