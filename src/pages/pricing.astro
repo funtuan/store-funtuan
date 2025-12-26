@@ -1,0 +1,406 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="價格方案 | FunTuan 工作室">
+  <div class="pricing-page">
+    <div class="container">
+      <header class="page-header">
+        <h1>價格方案</h1>
+        <p class="subtitle">選擇一個適合你的支持方式</p>
+        <p class="description">這不是購買，也不是加速。這是一種「我在」的表示。</p>
+      </header>
+
+      <div class="pricing-grid">
+        <!-- 短期支持 -->
+        <div class="pricing-card">
+          <div class="card-icon">🌱</div>
+          <div class="card-header">
+            <h2>短期支持</h2>
+            <div class="price">
+              <span class="amount">100</span>
+              <span class="currency">元</span>
+            </div>
+            <div class="duration">30 天</div>
+          </div>
+          <div class="card-content">
+            <p class="main-text">適合想先陪平台走一小段的人。</p>
+            <div class="features">
+              <p>在 30 天內，系統會為你保留目前的使用狀態與等待位置。</p>
+              <p class="highlight">這是一種「我在」的表示，不是購買，也不是加速。</p>
+            </div>
+          </div>
+          <button class="btn btn-primary">選擇此方案</button>
+        </div>
+
+        <!-- 穩定支持 -->
+        <div class="pricing-card featured">
+          <div class="popular-badge">推薦</div>
+          <div class="card-icon">🌿</div>
+          <div class="card-header">
+            <h2>穩定支持</h2>
+            <div class="price">
+              <span class="amount">200</span>
+              <span class="currency">元</span>
+            </div>
+            <div class="duration">90 天</div>
+          </div>
+          <div class="card-content">
+            <p class="main-text">如果你願意多等一點時間。</p>
+            <div class="features">
+              <p>在 90 天內，你的狀態會被系統持續記錄與保留，<br>不需要重來，也不需要重新排隊。</p>
+              <p class="highlight">這是對平台穩定運作的一份支持。</p>
+            </div>
+          </div>
+          <button class="btn btn-primary">選擇此方案</button>
+        </div>
+
+        <!-- 長期支持 -->
+        <div class="pricing-card">
+          <div class="card-icon">🌳</div>
+          <div class="card-header">
+            <h2>長期支持</h2>
+            <div class="price">
+              <span class="amount">400</span>
+              <span class="currency">元</span>
+            </div>
+            <div class="duration">365 天</div>
+          </div>
+          <div class="card-content">
+            <p class="main-text">有些人不急。</p>
+            <div class="features">
+              <p>如果你願意陪這個平台走一年，系統會在 365 天內為你保留完整狀態與位置。</p>
+              <p>這不是一年後才給你什麼，<br>而是這一年裡——</p>
+              <p class="highlight emphasis">你一直都在。</p>
+            </div>
+          </div>
+          <button class="btn btn-primary">選擇此方案</button>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <div class="info-card">
+          <h3>💭 關於這些方案</h3>
+          <p>我們相信，真正有價值的不是速度，而是陪伴。</p>
+          <p>這些方案不會讓你「插隊」或「加速」，但會讓系統記得你，記得你的狀態，記得你的位置。</p>
+          <p>你的支持，讓我們能持續改進，持續陪伴更多人。</p>
+        </div>
+
+        <div class="info-card">
+          <h3>📝 常見問題</h3>
+          <div class="faq">
+            <div class="faq-item">
+              <strong>Q: 如果我不選擇任何方案會怎樣？</strong>
+              <p>A: 你依然可以正常使用服務，只是系統可能無法長期保留你的狀態。</p>
+            </div>
+            <div class="faq-item">
+              <strong>Q: 這些方案可以退款嗎？</strong>
+              <p>A: 這是一份支持，不是交易。我們會盡力做到最好，但無法提供退款。</p>
+            </div>
+            <div class="faq-item">
+              <strong>Q: 方案到期後會發生什麼？</strong>
+              <p>A: 你可以選擇續期，也可以選擇不續。我們都尊重。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="back-link">
+        <a href="/">← 返回首頁</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .pricing-page {
+    min-height: 100vh;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    color: white;
+  }
+
+  .page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  .subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.95;
+  }
+
+  .description {
+    font-size: 1rem;
+    opacity: 0.85;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .pricing-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  }
+
+  .pricing-card.featured {
+    border: 3px solid #667eea;
+    transform: scale(1.05);
+  }
+
+  .pricing-card.featured:hover {
+    transform: scale(1.05) translateY(-8px);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -12px;
+    right: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .card-icon {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .card-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  .card-header h2 {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  .price {
+    margin-bottom: 0.5rem;
+  }
+
+  .price .amount {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #667eea;
+  }
+
+  .price .currency {
+    font-size: 1.5rem;
+    color: #4a5568;
+    margin-left: 0.3rem;
+  }
+
+  .duration {
+    font-size: 1.1rem;
+    color: #718096;
+  }
+
+  .card-content {
+    flex: 1;
+    margin-bottom: 2rem;
+  }
+
+  .main-text {
+    font-size: 1.2rem;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  .features {
+    color: #4a5568;
+    line-height: 1.8;
+  }
+
+  .features p {
+    margin-bottom: 1rem;
+  }
+
+  .highlight {
+    color: #667eea;
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  .emphasis {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  }
+
+  .info-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .info-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .info-card h3 {
+    color: #2d3748;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  .info-card p {
+    color: #4a5568;
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+  }
+
+  .info-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .faq {
+    margin-top: 1rem;
+  }
+
+  .faq-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .faq-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .faq-item strong {
+    color: #2d3748;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-item p {
+    margin-bottom: 0;
+    padding-left: 1rem;
+  }
+
+  .back-link {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .back-link a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-link a:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 968px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pricing-card.featured {
+      transform: scale(1);
+    }
+
+    .pricing-card.featured:hover {
+      transform: translateY(-8px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pricing-page {
+      padding: 2rem 0;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+    }
+
+    .pricing-card {
+      padding: 2rem;
+    }
+
+    .card-icon {
+      font-size: 3rem;
+    }
+
+    .price .amount {
+      font-size: 2.5rem;
+    }
+
+    .info-section {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
